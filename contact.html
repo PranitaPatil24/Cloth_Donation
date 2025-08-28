@@ -7,20 +7,82 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #2c3e50;   /* Dark blue/gray */
+      --accent-color: #fbc531;   /* Golden accent */
+    }
+
+    /* Navbar */
+    .navbar {
+      background: var(--primary-color) !important;
+    }
+    .navbar-brand {
+      color: var(--accent-color) !important;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .nav-link {
+      color: #fff !important;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-color) !important;
+    }
+
+    /* Section Title */
+    h2.section-title {
+      color: var(--primary-color);
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2.section-title::after {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 3px;
+      background: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Buttons */
+    .btn-custom {
+      background: var(--accent-color);
+      border: none;
+      color: var(--primary-color);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background: #d4ad07;
+      color: #fff;
+    }
+
+    /* Contact Cards */
+    .card {
+      border-radius: 12px;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">ClothDonate</a>
+      <a class="navbar-brand" href="index.html">ClothDonate</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#donate">Donate</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#how-it-works">How It Works</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
           <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
@@ -32,13 +94,16 @@
   <!-- Contact Section -->
   <section class="py-5 bg-light">
     <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="text-muted">We’d love to hear from you! Whether you’re a donor, NGO, or volunteer, feel free to reach out.</p>
+      </div>
       <div class="row justify-content-center g-4">
 
         <!-- Contact Form -->
         <div class="col-lg-6">
           <div class="card shadow-sm border-0">
-            <div class="card-body">
-              <h2 class="fw-bold mb-4 text-center">Get in Touch</h2>
+            <div class="card-body p-4">
               <form action="#" method="post">
                 <div class="mb-3">
                   <label for="name" class="form-label">Your Name</label>
@@ -52,7 +117,7 @@
                   <label for="message" class="form-label">Message</label>
                   <textarea id="message" name="message" class="form-control" rows="4" placeholder="Write your message..." required></textarea>
                 </div>
-                <button type="submit" class="btn btn-warning w-100">Send Message</button>
+                <button type="submit" class="btn btn-custom w-100">Send Message</button>
               </form>
             </div>
           </div>
@@ -61,11 +126,11 @@
         <!-- Contact Info -->
         <div class="col-lg-5">
           <div class="card shadow-sm border-0 h-100">
-            <div class="card-body text-center d-flex flex-column justify-content-center">
-              <h3 class="fw-bold mb-4"><i class="bi bi-telephone-fill text-danger"></i> Contact Info</h3>
+            <div class="card-body text-center d-flex flex-column justify-content-center p-4">
+              <h3 class="fw-bold mb-4 text-primary"><i class="bi bi-telephone-fill text-warning"></i> Contact Info</h3>
               <p class="mb-3"><i class="bi bi-envelope-fill text-primary"></i> <strong>Email:</strong> support@clothdonate.org</p>
               <p class="mb-3"><i class="bi bi-phone-fill text-success"></i> <strong>Phone:</strong> +91 98765 43210</p>
-              <p><i class="bi bi-geo-alt-fill text-warning"></i> <strong>Address:</strong> Pune, Maharashtra, India</p>
+              <p><i class="bi bi-geo-alt-fill text-danger"></i> <strong>Address:</strong> Pune, Maharashtra, India</p>
             </div>
           </div>
         </div>
