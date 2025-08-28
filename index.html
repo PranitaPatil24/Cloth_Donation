@@ -22,6 +22,65 @@
     html {
       scroll-behavior: smooth;
     }
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+ :root {
+      --primary-color: #0a1d37;   /* Navy Blue */
+      --accent-color: #f6c90e;    /* Yellow */
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    /* ====== Navbar ====== */
+    .navbar {
+      background: var(--primary-color) !important;
+    }
+    .navbar-brand {
+      color: var(--accent-color) !important;
+      font-size: 1.5rem;
+    }
+    .nav-link {
+      color: #fff !important;
+      transition: 0.3s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-color) !important;
+    }
+
+    /* ====== Section Titles ====== */
+    h2 {
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 3px;
+      background: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ====== Buttons ====== */
+    .btn-primary {
+      background: var(--accent-color);
+      border: none;
+      color: var(--primary-color);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-primary:hover {
+      background: #d4ad07;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -29,14 +88,13 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#">ClothDonate</a>
+    <a class="navbar-brand fw-bold" href="#home">ClothDonate</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#donate">Donate</a></li>
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -46,10 +104,10 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="hero">
+<section class="hero" id="home">
   <h1 class="display-4 fw-bold">Give Clothes. Spread Warmth.</h1>
   <p class="lead">Your small act of kindness can change someone's life.</p>
-  <a href="#donate" class="btn btn-warning btn-lg mt-3">Donate Now</a>
+  <a href="signup_login.html" class="btn btn-warning btn-lg mt-3">Donate Now</a>
 </section>
 
 <!-- How It Works -->
@@ -60,7 +118,7 @@
       <div class="col-md-6 col-lg-4">
         <div class="card shadow h-100">
           <div class="card-body">
-            <img src="step1.png" alt="Step 1" class="img-fluid mb-3" style="max-width:100px;">
+            <img src="how1.png" alt="Step 1" class="img-fluid mb-3" style="max-width:100px;">
             <h5>1. Fill Donation Form</h5>
             <p>Provide details of the clothes you wish to donate. It only takes a minute!</p>
           </div>
@@ -103,15 +161,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Donate Section -->
-<section id="donate" class="py-5 bg-light text-center">
-  <div class="container">
-    <h2 class="mb-3">Donate Clothes</h2>
-    <p class="lead mb-4">Fill out the form to donate clothes and help those in need.</p>
-    <a href="#" class="btn btn-primary btn-lg">Fill Donation Form</a>
   </div>
 </section>
 
