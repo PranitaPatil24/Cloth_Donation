@@ -1,158 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloth Donation</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClothDonate</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Hero background */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(44,62,80,0.6), rgba(44,62,80,0.6)),
+        url("home.jpg") no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: #fff;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Cloth<span>Donate</span></div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#" id="openModalBtn">Login / Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Donate Clothes, Spread Smiles</h1>
-            <p id="donation-text">Be the reason someone feels warm and cared for.</p>
-            <div class="buttons">
-                <a href="#">Donate Now</a>
-                <a href="#">Find Centers</a>
-            </div>
-            <p class="impact">10,000+ clothes donated and counting!</p>
-        </div>
-    </section>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">ClothDonate</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#donate">Donate</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>
-                    We are a non-profit organization committed to collecting and distributing gently used and new clothes 
-                    to those in need. Our mission is to ensure that no one suffers due to lack of clothing, especially 
-                    during harsh weather conditions.
-                </p>
-                <p>
-                    By connecting donors and collection centers through our platform, we make it easy for everyone to 
-                    contribute to this cause. Every piece of clothing you donate brings warmth, dignity, and hope to 
-                    someone’s life.
-                </p>
-                <p>
-                    Join us in our mission to make the world a warmer, kinder place — one shirt, one sweater, one smile at a time.
-                </p>
-            </div>
-            <div class="about-images">
-                <img src="about1.jpg" alt="Donation Drive">
-                <img src="about2.jpg" alt="Happy Recipients">
-            </div>
-        </div>
-    </section>
-    <section id="faq" class="faq-section">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-container">
-        <div class="faq-item">
-            <button class="faq-question">How can I donate to your organization?</button>
-            <div class="faq-answer">
-                <p>You can donate clothes by using our "Donate Now" button on the homepage, which will guide you to our donation form. You can also visit one of our designated collection centers to drop off clothes in person. Our platform helps you find the nearest center based on your location.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Will I get a tax exemption for my donation?</button>
-            <div class="faq-answer">
-                <p>Yes, your donation is eligible for a tax exemption under Section 80G of the Income Tax Act. We will provide you with a donation receipt and an 80G certificate once your donation is successfully processed.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">How do I receive my 80G certificate?</button>
-            <div class="faq-answer">
-                <p>Your 80G certificate will be sent to your registered email address within 7-10 working days after your donation has been verified. Please ensure your email address is correct in your user profile.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">What if I misplace my tax receipt?</button>
-            <div class="faq-answer">
-                <p>You can download a copy of your tax receipt and 80G certificate from your user dashboard. If you encounter any issues, please contact our support team, and we will be happy to assist you.</p>
-            </div>
-        </div>
-    </div>
-    <div class="faq-contact">
-        <p>My question is not here.</p>
-        <a href="#" class="contact-button">Contact Us</a>
-    </div>
+<!-- Hero Section -->
+<section class="hero">
+  <h1 class="display-4 fw-bold">Give Clothes. Spread Warmth.</h1>
+  <p class="lead">Your small act of kindness can change someone's life.</p>
+  <a href="#donate" class="btn btn-warning btn-lg mt-3">Donate Now</a>
 </section>
 
+<!-- How It Works -->
+<section id="how-it-works" class="py-5 text-center">
+  <div class="container">
+    <h2 class="mb-5">How It Works</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <img src="step1.png" alt="Step 1" class="img-fluid mb-3" style="max-width:100px;">
+            <h5>1. Fill Donation Form</h5>
+            <p>Provide details of the clothes you wish to donate. It only takes a minute!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <img src="step2.png" alt="Step 2" class="img-fluid mb-3" style="max-width:100px;">
+            <h5>2. Choose Pickup/Drop</h5>
+            <p>Select whether you’d like us to pick up your clothes or drop them off at a nearby center.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <img src="step3.png" alt="Step 3" class="img-fluid mb-3" style="max-width:100px;">
+            <h5>3. We Collect</h5>
+            <p>Our team or volunteers will safely collect your donations as per your choice.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <img src="step4.png" alt="Step 4" class="img-fluid mb-3" style="max-width:100px;">
+            <h5>4. Distribution</h5>
+            <p>Your clothes are sorted, packed, and distributed to those who need them most.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <img src="step5.png" alt="Step 5" class="img-fluid mb-3" style="max-width:100px;">
+            <h5>5. Spread Smiles</h5>
+            <p>Feel the joy of giving as your donation brings comfort and happiness to others.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Modal for Login/Signup -->
-<div id="authModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
+<!-- Donate Section -->
+<section id="donate" class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="mb-3">Donate Clothes</h2>
+    <p class="lead mb-4">Fill out the form to donate clothes and help those in need.</p>
+    <a href="#" class="btn btn-primary btn-lg">Fill Donation Form</a>
+  </div>
+</section>
 
-        <!-- Signup Form -->
-        <form id="signupForm">
-            <h2>Sign Up</h2>
-            <label for="userType">User Type:</label>
-            <select id="userType" name="userType" required onchange="toggleOrgField()">
-                <option value="">Select</option>
-                <option value="donor">Donor</option>
-                <option value="receiver">Receiver</option>
-                <option value="admin">Admin</option>
-            </select>
+<!-- Impact Section -->
+<section class="py-5 text-center bg-secondary text-white">
+  <div class="container">
+    <h2 class="mb-3">Our Impact</h2>
+    <p class="lead">
+      With the support of kind donors like you, we’ve been able to provide
+      warm clothes to hundreds of underprivileged families. Together, let’s
+      continue making the world a better place.
+    </p>
+  </div>
+</section>
 
-            <div id="orgField" style="display: none;">
-                <label for="organizationName">NGO/Organization Name:</label>
-                <input type="text" id="organizationName" name="organizationName" required placeholder="Enter organization name">
-            </div>
+<!-- Footer -->
+<footer class="bg-dark text-white py-3 text-center">
+  <p class="mb-0">&copy; 2025 ClothDonate | All Rights Reserved</p>
+</footer>
 
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required placeholder="Enter your name">
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required placeholder="Enter your email">
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required placeholder="Enter your password">
-
-            <button type="submit">Sign Up</button>
-            <p>Already have an account? <a href="#" class="switch-link" id="switchToLogin">Login</a></p>
-        </form>
-
-        <!-- Login Form -->
-        <form id="loginForm" style="display: none;">
-            <h2>Login</h2>
-            <label for="loginUserType">I am a:</label>
-            <select id="loginUserType" required>
-                <option value="donor">Donor</option>
-                <option value="receiver">Receiver</option>
-                <option value="admin">Admin</option>
-            </select>
-
-            <label for="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" required placeholder="Enter your email">
-
-
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" required placeholder="Enter your password">
-
-            <button type="submit">Login</button>
-            <p>Don't have an account? <a href="#" class="switch-link" id="switchToSignup">Sign Up</a></p>
-        </form>
-    </div>
-</div>
-
-
-
-
-    <script src="app.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
