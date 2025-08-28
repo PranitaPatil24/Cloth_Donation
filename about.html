@@ -6,11 +6,99 @@
   <title>About Us - Cloth Donation</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* ====== Global Theme Colors ====== */
+    :root {
+      --primary-color: #0a1d37;   /* Navy Blue */
+      --accent-color: #f6c90e;    /* Yellow */
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    /* ====== Navbar ====== */
+    .navbar {
+      background: var(--primary-color) !important;
+    }
+    .navbar-brand {
+      color: var(--accent-color) !important;
+      font-size: 1.5rem;
+    }
+    .nav-link {
+      color: #fff !important;
+      transition: 0.3s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-color) !important;
+    }
+
+    /* ====== Section Titles ====== */
+    h2 {
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 3px;
+      background: var(--accent-color);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ====== Buttons ====== */
+    .btn-primary {
+      background: var(--accent-color);
+      border: none;
+      color: var(--primary-color);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-primary:hover {
+      background: #d4ad07;
+      color: #fff;
+    }
+
+    /* ====== Mission & Vision Cards ====== */
+    .card {
+      border: none;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .card-title {
+      color: var(--primary-color);
+    }
+
+    /* ====== Team Section ====== */
+    .team-card img {
+      height: 260px;
+      object-fit: cover;
+    }
+    .team-card h5 {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      background: var(--primary-color);
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">ClothDonate</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -19,7 +107,6 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#donate">Donate</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#how-it-works">How It Works</a></li>
           <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -35,7 +122,7 @@
         
         <!-- Image -->
         <div class="col-lg-6 mb-4 mb-lg-0">
-          <img src="about.jpg" class="img-fluid rounded shadow" alt="About ClothDonate">
+          <img src="about1.jpg" class="img-fluid rounded shadow-lg" alt="About ClothDonate">
         </div>
 
         <!-- Text -->
@@ -50,7 +137,7 @@
             reach those who need them most. Whether it’s warm clothes for winter or everyday wear,
             every contribution makes a difference.
           </p>
-          <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+          <a href="contact.html" class="btn btn-primary px-4">Get in Touch</a>
         </div>
       </div>
     </div>
@@ -62,7 +149,7 @@
       <h2 class="fw-bold mb-4">Our Mission & Vision</h2>
       <div class="row g-4">
         <div class="col-md-6">
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100 shadow-sm p-3">
             <div class="card-body">
               <h5 class="card-title fw-bold">🌍 Mission</h5>
               <p class="card-text">
@@ -73,7 +160,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100 shadow-sm p-3">
             <div class="card-body">
               <h5 class="card-title fw-bold">✨ Vision</h5>
               <p class="card-text">
@@ -93,7 +180,7 @@
       <h2 class="fw-bold mb-4">Meet Our Team</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm team-card">
             <img src="team1.jpg" class="card-img-top" alt="Team Member 1">
             <div class="card-body">
               <h5 class="card-title">Amit Sharma</h5>
@@ -102,7 +189,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm team-card">
             <img src="team2.jpg" class="card-img-top" alt="Team Member 2">
             <div class="card-body">
               <h5 class="card-title">Priya Verma</h5>
@@ -111,7 +198,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm team-card">
             <img src="team3.jpg" class="card-img-top" alt="Team Member 3">
             <div class="card-body">
               <h5 class="card-title">Rahul Singh</h5>
@@ -124,7 +211,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
+  <footer class="text-white text-center py-3">
     <p class="mb-0">&copy; 2025 ClothDonate | All Rights Reserved</p>
   </footer>
 
