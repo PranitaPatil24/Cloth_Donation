@@ -1,0 +1,235 @@
+/* Custom Font and Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Light background */
+}
+
+/* --- Custom Color Variables (Gray and Coral) --- */
+:root {
+    --bs-primary: #4A5568; /* Deep Gray (Primary - Neutral) */
+    --bs-secondary: #FF7A59; /* Deep Coral/Salmon (Action/Warmth) */
+    --bs-dark: #2d3748; /* Footer background - Darker Gray */
+    --bs-link-color: var(--bs-primary);
+    --bs-link-hover-color: var(--bs-secondary);
+}
+
+/* --- Utility Classes for Colors --- */
+.text-primary { color: var(--bs-primary) !important; } 
+.text-coral { color: var(--bs-secondary) !important; }
+.bg-coral { background-color: var(--bs-secondary) !important; }
+
+/* --- Navbar Styles --- */
+.navbar {
+    background-color: white !important; /* Clean white navbar */
+    border-bottom: 3px solid var(--bs-primary); /* Gray accent line */
+}
+
+.navbar-brand {
+    color: var(--bs-primary) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar .nav-link {
+    color: #6c757d !important; /* Dark text */
+    font-weight: 600;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+    color: var(--bs-secondary) !important; /* Coral hover/active */
+}
+
+/* --- Custom Button Styles (Donate Now / Sign Up) --- */
+.btn-donate {
+    background-color: var(--bs-secondary);
+    color: white;
+    border: 2px solid var(--bs-secondary);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(255, 122, 89, 0.3);
+}
+.btn-donate:hover {
+    background-color: #E3634A; /* Slightly darker coral */
+    border-color: #E3634A;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(255, 122, 89, 0.4);
+}
+
+/* --- Hero Section Styling (index.html) --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('../assets/home.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2); /* Subtle darkening for contrast */
+    backdrop-filter: blur(5px);
+    z-index: 0;
+}
+.hero .content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+}
+.hero p {
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* --- Hero Section Styling (Subpages) --- */
+.hero-about {
+    position: relative;
+    height: 40vh;
+    background: url('../assets/home.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.hero-about::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 0;
+}
+.hero-about .content {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+
+/* --- 5-Step Section Cards --- */
+.card-how-it-works {
+    border: none;
+    border-top: 5px solid var(--bs-secondary) !important; /* Coral border top */
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.card-how-it-works:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.card-how-it-works i {
+    color: var(--bs-secondary) !important;
+}
+
+/* NEW: Responsive Layout for 5 cards in a row on large screens */
+@media (min-width: 1200px) {
+    .col-lg-2-4 {
+        flex: 0 0 auto;
+        width: 20%; /* 100% / 5 = 20% */
+    }
+}
+
+/* --- Team Section --- */
+.team-member img {
+    border: 5px solid var(--bs-primary);
+    box-shadow: 0 0 0 5px var(--bs-secondary);
+}
+
+/* --- Animation Styles --- */
+.animated-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animated-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Preloader Styles (Using gray and coral) --- */
+#preloader {
+    /* ... */
+}
+.spinner-grow-coral {
+    background-color: var(--bs-secondary) !important;
+}
+
+/* --- Footer Styles --- */
+footer {
+    background-color: var(--bs-dark) !important;
+}
+
+/* --- Sign Up Page Specific Styles --- */
+.floating-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    background: #f4f7fa;
+}
+.container-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 480px; /* Slightly wider */
+}
+.container-box h2 {
+    color: var(--bs-primary);
+    font-weight: 700;
+}
+.container-box input, .container-box select {
+    border: 1px solid #ddd;
+    transition: border-color 0.3s;
+}
+.container-box input:focus, .container-box select:focus {
+    border-color: var(--bs-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(255, 122, 89, 0.25);
+}
+.container-box button {
+    background: var(--bs-secondary);
+    color: white;
+    font-weight: 600;
+    border: none;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(255, 122, 89, 0.3);
+    padding: 12px;
+    margin-top: 8px;
+}
+.container-box button:hover {
+    background: #E3634A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 122, 89, 0.4);
+}
+.toggle-link {
+    text-align: center;
+    color: var(--bs-primary) !important; 
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.toggle-link:hover {
+    color: var(--bs-secondary) !important;
+    text-decoration: underline;
+}

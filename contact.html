@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ClothCare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <div id="preloader">
+        <div class="spinner-grow spinner-grow-coral me-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-hand-heart-fill me-2 text-coral"></i> ClothCare
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ngo.html">NGOs</a></li>
+                         <li class="nav-item"><a class="nav-link" href="event.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                 
+                </ul>
+                <a href="donate.html" class="btn btn-donate ms-lg-3">Donate Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1">
+
+        <section class="py-5 animated-section">
+            <div class="container">
+                <h2 class="text-center mb-5 text-blue fw-bold">Get In Touch With Us</h2>
+                <div class="card shadow-lg mx-auto border-0" style="max-width:600px;">
+                    <div class="card-body p-4 p-md-5">
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="contactName" class="form-label fw-semibold">Name</label>
+                                <input type="text" class="form-control" id="contactName" required>
+                                <div class="invalid-feedback">Please enter your name.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactEmail" class="form-label fw-semibold">Email</label>
+                                <input type="email" class="form-control" id="contactEmail" required>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="contactMessage" class="form-label fw-semibold">Message</label>
+                                <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
+                                <div class="invalid-feedback">Please enter a message.</div>
+                            </div>
+                            <div id="contact-message" class="alert d-none text-center" role="alert"></div>
+                            <button type="submit" class="btn btn-donate w-100 py-2">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-4 text-white mt-auto">
+        <div class="container">
+            <p class="mb-0 fw-semibold">© 2025 ShareTheWarmth | Together We Care <i class="bi bi-heart-fill text-danger"></i></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Intersection Observer for Fade-in-on-Scroll Animation (Same as index.html)
+        const sections = document.querySelectorAll('.animated-section');
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 
+        });
+
+        sections.forEach(section => {
+            section.classList.remove('visible');
+            observer.observe(section);
+        });
+
+        // Preloader fade-out on window load
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                }, 200);
+            }
+        });
+        
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const messageBox = document.getElementById('contact-message');
+                messageBox.classList.remove('d-none', 'alert-success', 'alert-danger');
+
+                if (contactForm.checkValidity()) {
+                    // Success logic
+                    messageBox.textContent = "✅ Message sent! We'll respond to your inquiry shortly.";
+                    messageBox.classList.add('alert-success');
+                    contactForm.reset();
+                    contactForm.classList.remove('was-validated');
+
+                    setTimeout(() => messageBox.classList.add('d-none'), 5000);
+                } else {
+                    // Error logic
+                    messageBox.textContent = "❌ Please fill out all required fields correctly.";
+                    messageBox.classList.add('alert-danger');
+                }
+                contactForm.classList.add('was-validated');
+            }, false);
+        }
+    </script>
+</body>
+</html>
