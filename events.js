@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const eventList = document.getElementById("eventList");
   const searchInput = document.getElementById("searchInput");
 
-  // ✅ Fetch Events from MongoDB (through backend)
   async function fetchEvents() {
     try {
       const response = await fetch("http://localhost:5000/api/events");
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       renderEvents(events);
 
-      // 🔍 Search functionality
       searchInput.addEventListener("input", () => {
         const query = searchInput.value.toLowerCase();
         const filtered = events.filter(e =>
@@ -31,23 +29,44 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // ✅ Display Events Dynamically
   function renderEvents(events) {
     eventList.innerHTML = events.map(e => `
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm border-0 h-100">
-          <img src="${e.imageUrl || 'https://via.placeholder.com/400x200?text=Donation+Event'}" class="card-img-top" alt="Event image">
-          <div class="card-body">
-            <h5 class="card-title fw-bold text-primary">${e.title}</h5>
-            <p class="card-text text-muted">${e.description || 'No description available.'}</p>
-            <p><i class="bi bi-calendar-event text-danger"></i> <strong>${e.date || 'TBA'}</strong></p>
+      <div class="col-md-4 mb-4 d-flex">
+        <div class="card shadow-sm border-0 flex-fill event-card">
+          <img src="${e.imageUrl || 'https://via.placeholder.com/400x200?text=Donation+Event'}" 
+               class="card-img-top event-img" alt="Event image">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-primary text-capitalize">${e.title}</h5>
+            <p class="card-text text-muted flex-grow-1">${e.description || 'No description available.'}</p>
+            <p class="mb-1"><i class="bi bi-calendar-event text-danger"></i> <strong>${e.date || 'TBA'}</strong></p>
             <p><i class="bi bi-geo-alt-fill text-success"></i> ${e.location || 'Location not specified'}</p>
+          </div>
+          <div class="card-footer bg-white border-0 text-center pb-4">
+            <button class="btn btn-donate w-75 register-btn" data-eventid="${e._id}">
+              <i class="bi bi-person-check me-1"></i> Register Now
+            </button>
           </div>
         </div>
       </div>
     `).join('');
   }
 
-  // Load events when page opens
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("register-btn")) {
+      const eventId = e.target.dataset.eventid;
+      localStorage.setItem("selectedEventId", eventId);
+
+      const user = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (!user) {
+        alert("Please log in as a donor to register for this event.");
+        window.location.href = "signup.html";
+      } else if (user.userType !== "donor") {
+        alert("Only donors can register for events.");
+      } else {
+        window.location.href = "donation.html";
+      }
+    }
+  });
+
   fetchEvents();
 });

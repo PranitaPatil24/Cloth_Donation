@@ -112,7 +112,7 @@ function toggleForms() {
   document.getElementById("loginForm").classList.toggle("hidden");
 }
 
-// ✅ SIGNUP SUBMISSION
+// ✅ SIGNUP (unchanged)
 document.getElementById("signupBtn").addEventListener("click", async (e) => {
   e.preventDefault();
   const userType = document.getElementById("userType").value;
@@ -164,7 +164,7 @@ document.getElementById("signupBtn").addEventListener("click", async (e) => {
   }
 });
 
-// ✅ LOGIN SUBMISSION (FIXED)
+// ✅ LOGIN (Updated)
 document.getElementById("loginBtn").addEventListener("click", async (e) => {
   e.preventDefault();
   const email = document.getElementById("loginEmail").value.trim();
@@ -182,14 +182,22 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
     const result = await res.json();
 
     if (res.ok) {
+      // ✅ Save user data in localStorage
+      localStorage.setItem("loggedInUser", JSON.stringify({ email, userType: result.userType }));
+
       if (result.userType === "ngo") {
         alert("Welcome NGO! Redirecting to Admin Dashboard...");
-        window.location.href = "admin-dashboard.html"; // ✅ NGO → Admin Dashboard
+        window.location.href = "admin-dashboard.html";
       } else if (result.userType === "donor") {
-        alert("Welcome Donor! Redirecting to Donation Form...");
-        window.location.href = "donation.html"; // ✅ Donor → Donation Form
-      } else {
-        alert("Unknown user type!");
+        alert("Welcome Donor!");
+
+        // If user clicked register on an event earlier
+        const eventId = localStorage.getItem("selectedEventId");
+        if (eventId) {
+          window.location.href = "donation.html";
+        } else {
+          window.location.href = "donation.html";
+        }
       }
     } else {
       alert(result.error || "Invalid credentials!");
@@ -200,6 +208,7 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
   }
 });
 </script>
+
 
 
 

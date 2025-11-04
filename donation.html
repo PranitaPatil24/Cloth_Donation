@@ -42,7 +42,10 @@
     <input type="text" class="form-control mb-3" name="pickupAddress" placeholder="Pickup Address" required>
     <input type="text" class="form-control mb-3" name="clothesType" placeholder="Type of Clothes (e.g., Winter, Kids, etc.)" required>
     <input type="number" class="form-control mb-3" name="quantity" placeholder="Quantity (in pieces)" required>
-    
+    <!-- Prefilled Event Details -->
+<input type="text" id="eventTitle" class="form-control mb-3" placeholder="Event Title" readonly>
+<input type="text" id="eventLocation" class="form-control mb-3" placeholder="Event Location" readonly>
+
     <label>Date and Time:</label>
     <div class="row">
       <div class="col">
@@ -82,6 +85,25 @@ document.getElementById("donationForm").addEventListener("submit", async (e) => 
     alert("Server error, please try again.");
   }
 });
+
+// ✅ Prefill Event Details
+window.addEventListener("DOMContentLoaded", async () => {
+  const eventId = localStorage.getItem("selectedEventId");
+  if (eventId) {
+    try {
+      const res = await fetch(`http://localhost:5000/api/events`);
+      const events = await res.json();
+      const event = events.find(ev => ev._id === eventId);
+      if (event) {
+        document.getElementById("eventTitle").value = event.title || "";
+        document.getElementById("eventLocation").value = event.location || "";
+      }
+    } catch (err) {
+      console.error("Error fetching event details:", err);
+    }
+  }
+});
+
 </script>
 
 </body>

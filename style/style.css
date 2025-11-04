@@ -233,3 +233,41 @@ footer {
     color: var(--bs-secondary) !important;
     text-decoration: underline;
 }
+/* Event Cards Styling */
+.event-card {
+  transition: all 0.3s ease-in-out;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.event-img {
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 3px solid #ff7a59;
+}
+
+/* Button */
+.btn-donate {
+  background-color: #ff7a59;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-donate:hover {
+  background-color: #e3634a;
+  color: #fff;
+}
+
+/* Fix equal card height */
+#eventList .col-md-4 {
+  display: flex;
+}
